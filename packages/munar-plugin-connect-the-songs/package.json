@@ -1,0 +1,19 @@
+{
+  "name": "munar-plugin-connect-the-songs",
+  "version": "0.0.0",
+  "description": "Munar plugin for playing Connect The Songs on services with DJ Booths.",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "munar-plugin"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+  },
+  "peerDependencies": {
+    "munar-core": "^1.0.0"
+  }
+}
