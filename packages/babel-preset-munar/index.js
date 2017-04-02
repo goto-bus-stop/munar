@@ -1,8 +1,10 @@
 module.exports = {
   presets: [
-    require('babel-preset-es2015-node4'),
-    require('babel-preset-es2016'),
-    require('babel-preset-es2017'),
+    [require('babel-preset-env'), {
+      targets: {
+        node: 6
+      }
+    }],
     require('babel-preset-stage-2')
   ],
   plugins: [
