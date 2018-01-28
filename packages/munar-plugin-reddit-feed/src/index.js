@@ -2,6 +2,7 @@ import got from 'got'
 import { Plugin } from 'munar-core'
 
 export default class RedditFeed extends Plugin {
+  static name = 'reddit-feed'
   static defaultOptions = {
     subreddits: [],
     template: '[r/$subreddit] $title https://redd.it/$id',

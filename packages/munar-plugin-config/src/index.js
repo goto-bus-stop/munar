@@ -19,6 +19,7 @@ class PluginConfigModel {
 }
 
 export default class Config extends Plugin {
+  static name = 'config'
   static description = 'Keeps plugin configuration.'
 
   events = []

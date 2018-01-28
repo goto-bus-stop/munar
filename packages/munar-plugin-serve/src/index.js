@@ -3,6 +3,7 @@ import { Plugin } from 'munar-core'
 import micro, { createError } from 'micro'
 
 export default class Serve extends Plugin {
+  static name = 'serve'
   static defaultOptions = {
     port: 3000,
     baseUrl: null

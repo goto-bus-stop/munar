@@ -9,6 +9,7 @@ function supportsBooth (adapter) {
 }
 
 export default class MediaBlacklist extends Plugin {
+  static name = 'media-blacklist'
   static description = 'Blacklist media.'
 
   constructor (bot, options) {

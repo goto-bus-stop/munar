@@ -15,6 +15,14 @@ mongoose.Promise = Promise
 
 const ownerSymbol = Symbol('owner')
 
+function resolvePlugin(name) {
+  try {
+    return require.resolve(`munar-plugin-${name}`)
+  } catch (err) {
+    return require.resolve(name)
+  }
+}
+
 export default class Munar extends EventEmitter {
   _adapters = {}
 
@@ -65,7 +73,7 @@ export default class Munar extends EventEmitter {
 
   use (plugin, options = {}) {
     if (typeof plugin === 'string') {
-      let path = require.resolve(`munar-plugin-${plugin}`)
+      let path = resolvePlugin(plugin)
       this.plugins.register(plugin, path)
       if (options.enable) {
         this.plugins.load(plugin, options)

@@ -1,6 +1,7 @@
 import { Plugin } from 'munar-core'
 
 export default class AntiSpam extends Plugin {
+  static name = 'anti-spam'
   static description = 'Auto-deletes messages.'
 
   static defaultOptions = {

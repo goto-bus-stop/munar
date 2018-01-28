@@ -6,6 +6,7 @@ const debug = require('debug')('munar:events')
 const gcal = google.calendar('v3')
 
 export default class EventsCalendar extends Plugin {
+  static name = 'events-calendar'
   static description = 'Google Calendar-based event scheduling.'
 
   static defaultOptions = {
