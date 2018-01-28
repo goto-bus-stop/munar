@@ -3,6 +3,7 @@ import { Plugin } from 'munar-core'
 const debug = require('debug')('munar:user-log')
 
 export default class UserLog extends Plugin {
+  static name = 'user-log'
   static description = 'Keeps track of users who visit the channel.'
 
   constructor (bot, options) {

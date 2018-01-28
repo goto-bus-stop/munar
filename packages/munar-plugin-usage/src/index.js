@@ -13,6 +13,8 @@ function stringifyArgument (type, index) {
 }
 
 export default class Usage extends Plugin {
+  static name = 'usage'
+
   getCommand (commandName) {
     const plugins = this.bot.plugins.loaded()
     for (const pluginName of plugins) {

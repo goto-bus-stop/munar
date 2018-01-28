@@ -2,6 +2,7 @@ import { Plugin } from 'munar-core'
 import random from 'random-item'
 
 export default class Greetings extends Plugin {
+  static name = 'greetings'
   static description = 'Greets users.'
 
   static defaultOptions = {

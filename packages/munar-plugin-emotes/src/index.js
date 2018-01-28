@@ -14,6 +14,7 @@ const IMGUR = /^https?:\/\/i\.imgur\.com\//
 const argEmoteName = command.arg.string().description('Emote Name')
 
 export default class Emotes extends Plugin {
+  static name = 'emotes'
   static description = 'Reaction GIF repository'
 
   static defaultOptions = {

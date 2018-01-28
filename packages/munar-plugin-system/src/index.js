@@ -5,6 +5,7 @@ const argPluginName = command.arg.string()
   .description('Plugin Name')
 
 export default class System extends Plugin {
+  static name = 'system'
   static description = 'Simple tools for plugin management & system information'
 
   manager () {

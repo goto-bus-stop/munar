@@ -8,6 +8,7 @@ import KarmaModel from './Karma'
 const debug = require('debug')('munar:karma')
 
 export default class UserKarma extends Plugin {
+  static name = 'karma'
   static description = 'Keeps track of users\' earned internet points.'
 
   constructor (bot, options) {

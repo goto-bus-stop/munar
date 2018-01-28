@@ -5,6 +5,7 @@ import * as vars from './vars'
 import { renderTriggers } from './serve'
 
 export default class Triggers extends Plugin {
+  static name = 'triggers'
   static description = 'Throws text at people.'
 
   constructor (bot, options) {

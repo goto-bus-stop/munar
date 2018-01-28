@@ -3,6 +3,7 @@ import { Plugin, command } from 'munar-core'
 import moment from 'moment'
 
 export default class ChatLog extends Plugin {
+  static name = 'chat-log'
   static description = 'Logs chat messages.'
 
   constructor (bot, options) {

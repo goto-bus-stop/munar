@@ -18,6 +18,7 @@ function assertSupportsRaffles (source) {
 }
 
 export default class WaitlistRaffle extends Plugin {
+  static name = 'waitlist-raffle'
   static description = 'Run raffles for a waitlist position.'
 
   static defaultOptions = {
