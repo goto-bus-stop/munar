@@ -7,7 +7,7 @@ const supportsBoothLockskipping = (adapter) =>
   typeof adapter.getDJBooth === 'function' &&
   typeof adapter.getDJBooth().lockskip === 'function'
 
-export default async function lockskip (adapter, { position = 1 } = {}) {
+export default async function lockskip (adapter, { position = 1, reason } = {}) {
   if (supportsBoothLockskipping(adapter)) {
     const booth = adapter.getDJBooth()
     await booth.lockskip({ position })
@@ -23,7 +23,7 @@ export default async function lockskip (adapter, { position = 1 } = {}) {
       ? (await waitlist.all()).length
       : Infinity
     // Attempt to lockskip manually.
-    await booth.skip()
+    await booth.skip({ reason })
     if (waitlistLength > position) {
       await delay(1000)
       await waitlist.move(dj.id, position)

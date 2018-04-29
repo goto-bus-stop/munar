@@ -32,6 +32,7 @@ class Exemptions extends Set {
 export default class DJHistorySkip extends Plugin {
   static defaultOptions = {
     limit: 50,
+    ping: true, // Whether to alert the user in chat
     lockskipPosition: 1
   }
 
@@ -106,13 +107,18 @@ export default class DJHistorySkip extends Plugin {
     const lastPlay = history.find((entry) => this.isHistoryMatch(entry, current))
     if (lastPlay) {
       const duration = moment.duration(Date.now() - lastPlay.playedAt, 'milliseconds')
-      adapter.send(
-        `@${dj.username} This song was played ${duration.humanize()} ago` +
-        (lastPlay.user ? ` by ${lastPlay.user.username}` : '') +
-        '.'
-      )
+      const reason = `This song was played ${duration.humanize()} ago`
+        (lastPlay.user ? ` by ${lastPlay.user.username}` : '')
+
+      if (this.options.ping) {
+        adapter.send(`@${dj.username} ${reason}`)
+      }
+
       await delay(500)
-      await lockskip(adapter, { position: this.options.position })
+      await lockskip(adapter, {
+        position: this.options.position,
+        reason
+      })
     }
   }
 }

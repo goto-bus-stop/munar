@@ -55,13 +55,13 @@ export default class DJBooth {
     return this.uw.getUser(this.booth.userID)
   }
 
-  async skip () {
+  async skip ({ reason = '' } = {}) {
     if (!this.booth) {
       return
     }
     await this.uw.request('post', 'booth/skip', {
       userID: this.booth.userID,
-      reason: ''
+      reason
     })
   }
 }
