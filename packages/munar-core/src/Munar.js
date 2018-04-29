@@ -78,8 +78,13 @@ export default class Munar extends EventEmitter {
       if (options.enable) {
         this.plugins.load(plugin, options)
       }
+    } else if (typeof plugin === 'function' && typeof plugin.name === 'string') {
+      this.plugins.register(plugin.name, plugin)
+      if (options.enable) {
+        this.plugins.load(plugin.name, options)
+      }
     } else {
-      throw new TypeError('¯\\_(ツ)_/¯')
+      throw new TypeError(`munar-core.use: Expected a Plugin instance or module path, got ${typeof plugin}`)
     }
     return this
   }

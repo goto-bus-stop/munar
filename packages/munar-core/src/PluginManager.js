@@ -45,9 +45,13 @@ export default class PluginManager extends EventEmitter {
   }
 
   register (name, path) {
-    this.plugins.push({
-      name, path
-    })
+    const plugin = { name }
+    if (typeof path === 'function') {
+      plugin.class = path
+    } else {
+      plugin.path = path
+    }
+    this.plugins.push(plugin)
 
     this.emit('discovered', name, path)
   }
@@ -115,7 +119,7 @@ export default class PluginManager extends EventEmitter {
 
     debug('load', meta.name)
 
-    const m = require(meta.path)
+    const m = meta.class || require(meta.path)
     const PluginClass = m.default || m
 
     const plugin = new PluginClass(this.bot, opts)
